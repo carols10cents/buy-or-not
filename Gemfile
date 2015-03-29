@@ -1,29 +1,19 @@
 source 'https://rubygems.org'
 
-
-# Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.1'
-gem 'pg'
+gem 'pg', '~> 0.18.1'
 
-# Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
-# Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
-# Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.1.0'
-
-# Use jquery as the JavaScript library
-gem 'jquery-rails'
-# Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
+gem 'jquery-rails', '~> 4.0.3'
 gem 'jbuilder', '~> 2.0'
 
-# Use Unicorn as the app server
-gem 'unicorn'
+gem 'unicorn', '~> 4.8.3'
+
+gem 'omniauth-discogs', '~> 0.0.2'
 
 group :development, :test do
-  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug'
-
-  # Access an IRB console on exception pages or by using <%= console %> in views
+  gem 'byebug', '~> 4.0.4'
   gem 'web-console', '~> 2.0'
 end
