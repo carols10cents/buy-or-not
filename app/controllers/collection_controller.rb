@@ -3,4 +3,8 @@ class CollectionController < ApplicationController
 
   def show
   end
+
+  def sync
+    render json: '{}'
+  end
 end

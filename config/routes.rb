@@ -6,4 +6,5 @@ Rails.application.routes.draw do
   delete '/signout' => 'sessions#destroy'
 
   get '/collection' => 'collection#show'
+  get '/collection/sync' => 'collection#sync'
 end
