@@ -17,6 +17,8 @@ gem 'unicorn', '~> 4.8.3'
 
 gem 'omniauth-discogs', '~> 0.0.2'
 
+gem 'httparty', '~> 0.13.3'
+
 group :development, :test do
   gem 'byebug', '~> 4.0.4'
   gem 'web-console', '~> 2.0'
