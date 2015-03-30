@@ -1,4 +1,8 @@
 <h1>Welcome to Buy Or Not!</h1>
 <section>
-  <%= link_to "Sign in with Discogs", '/auth/discogs' %>
+  <% if current_user %>
+    You are signed in as <%= current_user.username %>. <%= link_to "Sign out", signout_path %>
+  <% else %>
+    <%= link_to "Sign in with Discogs", '/auth/discogs' %>
+  <% end %>
 </section>
