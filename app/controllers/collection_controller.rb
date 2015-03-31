@@ -5,6 +5,6 @@ class CollectionController < ApplicationController
   end
 
   def sync
-    render json: '{}'
+    render json: current_user.collection(params[:page])
   end
 end

@@ -14,4 +14,20 @@ class User < ActiveRecord::Base
       user.username = auth['info']['username']
     end
   end
+
+  def discogs
+    @discogs ||= OAuth::AccessToken.from_hash(
+      DISCOGS_CONSUMER,
+      oauth_token: token,
+      oauth_token_secret: secret
+    )
+  end
+
+  def collection(page = 1)
+    result = discogs.get(
+      "https://api.discogs.com/users/#{username}/collection/folders/0/releases?page=#{page}",
+      {"User-Agent" => "BuyOrNot"}
+    )
+    CollectionDecorator.new(result.body).essentials
+  end
 end
