@@ -7,6 +7,7 @@ class CollectionDecorator
     {
       total: total,
       page: page,
+      total_pages: total_pages,
       num: num,
       releases: release_essentials
     }
@@ -24,6 +25,10 @@ class CollectionDecorator
 
   def page
     @json['pagination']['page']
+  end
+
+  def total_pages
+    @json['pagination']['pages']
   end
 
   def num
