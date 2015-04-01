@@ -3,7 +3,7 @@
   You are signed in as <%= current_user.username %>. <%= link_to "Sign out", signout_path, method: :delete %>
 </section>
 <section class="collection-sync">
-  You have not synced your discogs collection.
+  <span class="sync-stats">You have not synced your discogs collection.</span>
   <button id='sync-collection'>Sync now</button>
 
   <div class="collection-stats">
