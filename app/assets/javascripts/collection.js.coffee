@@ -4,11 +4,11 @@ $ ->
       $('.sync-stats').html "You last synced on #{localStorage.lastSyncTime}"
     $('.collection-num').html localStorage.num
     $('.collection-total').html localStorage.total
-    $('.search').html ''
+    $('.results').html ''
     releases = JSON.parse(localStorage.releases)
     if releases.length > 0
       $.each releases, (i, r) ->
-        $('.search').append("<div>#{r.artists} - #{r.title}</div>")
+        $('.results').append("<div>#{r.artists} - #{r.title}</div>")
 
   updateDisplay()
 
