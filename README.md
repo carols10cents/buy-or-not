@@ -1,5 +1,10 @@
 ## Buy or Not
 
+TODO:
+
+- Disable browser autocomplete
+- Sort
+
 ### Setup
 
 * Register a discogs app

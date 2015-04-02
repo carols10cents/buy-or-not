@@ -11,9 +11,9 @@
   </div>
 </section>
 <section class="search">
-  <form>
-    <input name="search" id="search" /><input type="submit" value="Search" />
+  <form class="ui-filterable">
+    <input name="search" id="search" data-type="search" type="text" />
   </form>
 </section>
-<section class="results">
-</section>
+<ul id="results" data-filter="true" data-input="#search">
+</ul>

@@ -4,11 +4,11 @@ $ ->
       $('.sync-stats').html "You last synced on #{localStorage.lastSyncTime}"
     $('.collection-num').html localStorage.num
     $('.collection-total').html localStorage.total
-    $('.results').html ''
+    $('#results').html ''
     releases = JSON.parse(localStorage.releases)
     if releases.length > 0
       $.each releases, (i, r) ->
-        $('.results').append("<div>#{r.artists} - #{r.title}</div>")
+        $('#results').append("<li>#{r.artists} - #{r.title}</li>")
 
   updateDisplay()
 
@@ -36,5 +36,8 @@ $ ->
         if data.page < data.total_pages
           syncCollection(page + 1)
         else
+          $('#results').filterable('refresh')
           $('#sync-collection').text('Sync Now')
           $('#sync-collection').attr('disabled', false)
+
+  $('#results').filterable()
