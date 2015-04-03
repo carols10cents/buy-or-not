@@ -2,7 +2,6 @@
 
 TODO:
 
-- Disable browser autocomplete
 - Sort
 
 ### Setup
