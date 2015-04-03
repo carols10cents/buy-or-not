@@ -7,8 +7,10 @@ $ ->
     $('#results').html ''
     releases = JSON.parse(localStorage.releases)
     if releases.length > 0
-      $.each releases, (i, r) ->
-        $('#results').append("<li>#{r.artists} - #{r.title}</li>")
+      releaseStrings = $.map releases, (r, i) ->
+        "#{r.artists} - #{r.title}"
+      $.each releaseStrings.sort(), (i, r) ->
+        $('#results').append("<li>#{r}</li>")
 
   updateDisplay()
 

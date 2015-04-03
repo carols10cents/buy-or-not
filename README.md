@@ -1,9 +1,5 @@
 ## Buy or Not
 
-TODO:
-
-- Sort
-
 ### Setup
 
 * Register a discogs app
