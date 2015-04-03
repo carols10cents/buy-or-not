@@ -1,4 +1,4 @@
-## Buy or Not
+## To Buy or Not To Buy
 
 ### Setup
 
