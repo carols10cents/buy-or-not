@@ -14,4 +14,5 @@
 //= require jquery_ujs
 //= require jquery-ui.min
 //= require jquery.mobile.custom.min
+//= require jquery.timeago
 //= require collection

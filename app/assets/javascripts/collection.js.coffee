@@ -1,7 +1,8 @@
 $ ->
   updateDisplay = ->
     if localStorage.lastSyncTime?
-      $('.sync-stats').html "You last synced on #{localStorage.lastSyncTime}"
+      prettyDate = $.timeago Date.parse localStorage.lastSyncTime
+      $('.sync-stats').html "You last synced with Discogs #{prettyDate}."
     $('.collection-num').html localStorage.num
     $('.collection-total').html localStorage.total
     $('#results').html ''
@@ -17,7 +18,7 @@ $ ->
   $('#sync-collection').on 'click', (event) ->
     $(this).text('Syncing...')
     $(this).attr('disabled', true)
-    localStorage.lastSyncTime = new Date()
+    localStorage.lastSyncTime = new Date().toISOString()
     localStorage.num          = 0
     localStorage.total        = 0
     localStorage.releases     = JSON.stringify []
