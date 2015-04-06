@@ -15,6 +15,8 @@ gem 'jbuilder', '~> 2.0'
 
 gem 'unicorn', '~> 4.8.3'
 
+gem 'rails_12factor', '~> 0.0.3'
+
 gem 'omniauth-discogs', '~> 0.0.2'
 
 gem 'httparty', '~> 0.13.3'
