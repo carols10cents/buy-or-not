@@ -11,10 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150330014727) do
+ActiveRecord::Schema.define(version: 20150405230049) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "remember_me_tokens", force: :cascade do |t|
+    t.string   "value"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "remember_me_tokens", ["user_id"], name: "index_remember_me_tokens_on_user_id", using: :btree
+  add_index "remember_me_tokens", ["value"], name: "index_remember_me_tokens_on_value", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "provider"

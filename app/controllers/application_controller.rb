@@ -10,7 +10,13 @@ class ApplicationController < ActionController::Base
   end
 
   def current_user
-    @current_user ||= User.find(session[:user_id]) if session[:user_id]
+    if @current_user
+      @current_user
+    elsif session[:user_id]
+      @current_user = User.find(session[:user_id])
+    elsif cookies.signed[:remember_user_token]
+      @current_user = User.from_token(cookies.signed[:remember_user_token])
+    end
   end
 
   helper_method :current_user

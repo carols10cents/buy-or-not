@@ -1,8 +1,12 @@
 <h1>To Buy or Not To Buy?</h1>
 <section>
   <% if current_user %>
-    You are signed in as <%= current_user.username %>. <%= link_to "Sign out", signout_path %>
+    You are signed in as <%= current_user.username %>. <%= link_to 'Sign out', signout_path %>
   <% else %>
-    <%= link_to "Sign in with Discogs", '/auth/discogs' %>
+    <%= form_tag '/auth/discogs' do  %>
+      <%= submit_tag 'Sign in with Discogs' %>
+      <%= check_box_tag :remember_me %>
+      <%= label_tag :remember_me, 'Remember me for two weeks' %>
+    <% end %>
   <% end %>
 </section>
