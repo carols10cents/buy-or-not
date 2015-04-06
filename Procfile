@@ -1,0 +1,1 @@
+web: sh -c 'PG_APP_NAME=web bundle exec unicorn -p $PORT'
