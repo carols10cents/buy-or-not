@@ -15,4 +15,5 @@
 //= require jquery-ui.min
 //= require jquery.mobile.custom.min
 //= require jquery.timeago
+//= require bootstrap-sprockets
 //= require collection
