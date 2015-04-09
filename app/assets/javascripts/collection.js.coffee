@@ -11,7 +11,7 @@ $ ->
       releaseStrings = $.map releases, (r, i) ->
         "#{r.artists} - #{r.title}"
       $.each releaseStrings.sort(), (i, r) ->
-        $('#results').append("<li>#{r}</li>")
+        $('#results').append("<tr><td>#{r}</td></tr>")
 
   updateDisplay()
 
