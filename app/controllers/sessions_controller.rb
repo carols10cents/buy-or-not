@@ -18,13 +18,13 @@ class SessionsController < ApplicationController
       cookies.signed[:remember_user_token] = remember_cookie_values
     end
 
-    redirect_to root_url, notice: "Signed in."
+    redirect_to root_url
   end
 
   def destroy
     session[:user_id] = nil
     current_user.forget_me!(cookies.signed[:remember_user_token]) if current_user
     cookies.delete :remember_user_token
-    redirect_to root_url, notice: "Signed out."
+    redirect_to root_url
   end
 end
