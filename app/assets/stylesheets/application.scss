@@ -1,4 +1,48 @@
+$body-bg: #DBD2C8;
+$text-color: #1A160F;
+
+$jumbotron-bg: #F2F0EB;
+
+$btn-primary-bg: #F79D1E;
+$btn-primary-color: $text-color;
+
+$input-group-addon-bg: $btn-primary-bg;
+$input-color: $text-color;
+
+$navbar-default-bg: $body-bg;
+$navbar-default-color: $text-color;
+
+$navbar-default-toggle-icon-bar-bg: $btn-primary-bg;
+$navbar-default-toggle-hover-bg: darken($btn-primary-bg, 5%);
+
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import "jquery.mobile.custom.structure.min";
 @import "jquery.mobile.custom.theme.min";
+
+.collection {
+  background-color: $jumbotron-bg;
+}
+
+.navbar h1 {
+  margin-left: 15px;
+}
+
+button.navbar-toggle {
+  background-color: $btn-primary-bg;
+  &:hover {
+    background-color: darken($btn-primary-bg, 5%);
+  }
+}
+
+.navbar-collapse p {
+  text-align: right;
+}
+
+.jumbotron {
+  margin-top: 30px;
+}
+
+.hidden {
+  display: none;
+}

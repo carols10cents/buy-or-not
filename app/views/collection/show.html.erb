@@ -1,38 +1,43 @@
-<nav class="navbar navbar-default">
-  <div class="container">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#actions-menu">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="glyphicon glyphicon-cog"></span>
-      </button>
-      <!-- make this an h1 but without so much margin top/bottom -->
-      <span class="navbar-brand">To Buy or Not To Buy?</span>
-    </div>
+<div class="collection">
+  <nav class="navbar navbar-default">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#actions-menu">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="glyphicon glyphicon-cd"></span>
+        </button>
+        <h1 class="navbar-text h2">To Buy or Not To Buy?</h1>
+      </div>
 
-    <div class="collapse navbar-collapse" id="actions-menu">
-      <p class="navbar-text">
-        <span>Signed in as <%= current_user.username %>.</span>
-        <%= link_to "Sign out", signout_path, method: :delete, class: 'btn btn-default' %>
-      </p>
-      <p class="navbar-text">
-        <span class="sync-stats">You have not synced your discogs collection.</span>
-        <button id='sync-collection' class='btn btn-default'>Sync now</button>
-      </p>
+      <div class="collapse navbar-collapse" id="actions-menu">
+        <p class="navbar-text">
+          <span>Signed in as <%= current_user.username %>.</span>
+          <%= link_to "Sign out", signout_path, method: :delete, class: 'btn btn-default' %>
+        </p>
+        <p class="navbar-text">
+          <span class="sync-stats">You have not synced your discogs collection.</span>
+          <button id='sync-collection' class='btn btn-default'>Sync now</button>
+        </p>
+      </div>
     </div>
+  </nav>
+  <div class="container-fluid">
+    <section class="collection-sync">
+      <p class="collection-stats">
+        Synced <span class="collection-num">0</span> out of <span class="collection-total">0</span> releases.
+      </p>
+    </section>
+    <section class="search">
+      <form class="ui-filterable">
+        <div class="form-group">
+          <div class="input-group">
+            <div class="input-group-addon"><span class="glyphicon glyphicon-search"></span></div>
+            <input name="search" id="search" class="form-control" data-type="search" type="search" autocomplete="off" placeholder="Search" />
+          </div>
+        </div>
+      </form>
+    </section>
+    <table id="results" data-filter="true" data-input="#search" class="table table-condensed">
+    </table>
   </div>
-</nav>
-<div class="container-fluid">
-  <section class="collection-sync">
-
-    <div class="collection-stats">
-      Synced <span class="collection-num">0</span> out of <span class="collection-total">0</span> releases.
-    </div>
-  </section>
-  <section class="search">
-    <form class="ui-filterable">
-      <input name="search" id="search" class="form-control" data-type="search" type="search" autocomplete="off" placeholder="Search" />
-    </form>
-  </section>
-  <table id="results" data-filter="true" data-input="#search" class="table table-condensed">
-  </table>
 </div>
