@@ -13,7 +13,8 @@ $ ->
       $.each releaseStrings.sort(), (i, r) ->
         $('#results').append("<tr><td>#{r}</td></tr>")
 
-  updateDisplay()
+  if $('.collection').length > 0
+    updateDisplay()
 
   $('#sync-collection').on 'click', (event) ->
     $(this).text('Syncing...')
