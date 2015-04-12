@@ -52,6 +52,18 @@ $ ->
     updateDisplay()
     syncCollection(1)
 
+  $('#search').on 'keyup', (event) ->
+    if $('#search').val().length > 0
+      $('#clear-search').removeClass('hidden')
+    else
+      $('#clear-search').addClass('hidden')
+
+  $('#clear-search').on 'click', (event) ->
+    $('#search').val('')
+    $('#clear-search').addClass('hidden')
+    $('#results').filterable('refresh')
+    $('#search').focus()
+
   $('#results').filterable()
 
   if $('.collection').length > 0

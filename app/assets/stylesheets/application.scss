@@ -58,3 +58,7 @@ button.navbar-toggle {
 .collection > .container-fluid {
   max-width: 600px;
 }
+
+button#clear-search {
+  pointer-events: auto;
+}
