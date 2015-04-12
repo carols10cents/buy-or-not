@@ -9,6 +9,8 @@ $btn-primary-color: $text-color;
 $input-group-addon-bg: $btn-primary-bg;
 $input-color: $text-color;
 
+$grid-float-breakpoint: 3000px;
+
 $navbar-default-bg: $body-bg;
 $navbar-default-color: $text-color;
 
@@ -22,6 +24,7 @@ $navbar-default-toggle-hover-bg: darken($btn-primary-bg, 5%);
 
 .collection {
   background-color: $jumbotron-bg;
+  padding-bottom: 25px;
 }
 
 .navbar h1 {
@@ -45,4 +48,10 @@ button.navbar-toggle {
 
 .hidden {
   display: none;
+}
+
+.homepage > .container-fluid,
+.collection nav .container,
+.collection > .container-fluid {
+  max-width: 600px;
 }
