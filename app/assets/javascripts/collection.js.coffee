@@ -1,4 +1,10 @@
 $ ->
+  initLocalStorage = ->
+    localStorage.lastSyncTime = new Date().toISOString()
+    localStorage.num          = 0
+    localStorage.total        = 0
+    localStorage.releases     = '[]'
+
   syncCollection = (page) ->
     $.get '/collection/sync',
       { page: page },
@@ -19,10 +25,7 @@ $ ->
 
   updateDisplay = ->
     if !localStorage.lastSyncTime?
-      localStorage.lastSyncTime = new Date().toISOString()
-      localStorage.num          = 0
-      localStorage.total        = 0
-      localStorage.releases     = '[]'
+      initLocalStorage()
       syncCollection(1)
     else
       prettyDate = $.timeago Date.parse localStorage.lastSyncTime
@@ -45,10 +48,7 @@ $ ->
   $('#sync-collection').on 'click', (event) ->
     $(this).text('Syncing...')
     $(this).attr('disabled', true)
-    localStorage.lastSyncTime = new Date().toISOString()
-    localStorage.num          = 0
-    localStorage.total        = 0
-    localStorage.releases     = '[]'
+    initLocalStorage()
     updateDisplay()
     syncCollection(1)
 
