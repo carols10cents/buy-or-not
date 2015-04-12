@@ -22,6 +22,7 @@ $ ->
           $('#results').filterable('refresh')
           $('#sync-collection').text('Sync Now')
           $('#sync-collection').attr('disabled', false)
+          $('#search').attr('disabled', false)
 
   updateDisplay = ->
     prettyDate = $.timeago Date.parse localStorage.lastSyncTime
@@ -52,4 +53,7 @@ $ ->
       updateDisplay()
     else
       initLocalStorage()
+      $('#notice').removeClass('hidden')
+      $('#notice').html 'Syncing with Discogs: <span class="collection-num">0</span> out of <span class="collection-total">0</span>.<br />This only needs to happen the first time you log in on a new device.'
+      $('#search').attr('disabled', true)
       syncCollection(1)
