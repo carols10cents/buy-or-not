@@ -24,26 +24,19 @@ $ ->
           $('#sync-collection').attr('disabled', false)
 
   updateDisplay = ->
-    if !localStorage.lastSyncTime?
-      initLocalStorage()
-      syncCollection(1)
-    else
-      prettyDate = $.timeago Date.parse localStorage.lastSyncTime
-      $('.sync-stats').html "You last synced with Discogs #{prettyDate}."
-      $('.collection-num').html localStorage.num
-      $('.collection-total').html localStorage.total
-      $('#results').html ''
-      if localStorage.releases == '[null]'
-        localStorage.releases = '[]'
-      if localStorage.releases?.length > 0
-        releases = JSON.parse(localStorage.releases)
-        releaseStrings = $.map releases, (r, i) ->
-          "#{r.artists} - #{r.title}"
-        $.each releaseStrings.sort(), (i, r) ->
-          $('#results').append("<tr><td>#{r}</td></tr>")
-
-  if $('.collection').length > 0
-    updateDisplay()
+    prettyDate = $.timeago Date.parse localStorage.lastSyncTime
+    $('.sync-stats').html "You last synced with Discogs #{prettyDate}."
+    $('.collection-num').html localStorage.num
+    $('.collection-total').html localStorage.total
+    $('#results').html ''
+    if localStorage.releases == '[null]'
+      localStorage.releases = '[]'
+    if localStorage.releases?.length > 0
+      releases = JSON.parse(localStorage.releases)
+      releaseStrings = $.map releases, (r, i) ->
+        "#{r.artists} - #{r.title}"
+      $.each releaseStrings.sort(), (i, r) ->
+        $('#results').append("<tr><td>#{r}</td></tr>")
 
   $('#sync-collection').on 'click', (event) ->
     $(this).text('Syncing...')
@@ -53,3 +46,10 @@ $ ->
     syncCollection(1)
 
   $('#results').filterable()
+
+  if $('.collection').length > 0
+    if localStorage.lastSyncTime?
+      updateDisplay()
+    else
+      initLocalStorage()
+      syncCollection(1)
