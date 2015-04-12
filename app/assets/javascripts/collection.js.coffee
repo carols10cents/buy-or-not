@@ -6,6 +6,8 @@ $ ->
     $('.collection-num').html localStorage.num
     $('.collection-total').html localStorage.total
     $('#results').html ''
+    if localStorage.releases == '[null]'
+      localStorage.releases = '[]'
     if localStorage.releases?.length > 0
       releases = JSON.parse(localStorage.releases)
       releaseStrings = $.map releases, (r, i) ->
