@@ -23,6 +23,12 @@ $ ->
           $('#sync-collection').text('Sync Now')
           $('#sync-collection').attr('disabled', false)
           $('#search').attr('disabled', false)
+          $('#notice').html('<button type="button" class="close" aria-label="Close"><span aria-hidden="true">×</span></button><p><strong>Syncing complete!</strong></p><p>Now you can quickly filter your collection using the search box.</p><p>You can re-sync with Discogs at any time from the menu in the upper right.</p>')
+          $('#notice').addClass('alert-dismissable alert-success').removeClass('alert-info')
+          $('#notice button.close').on 'click', (event) ->
+            $('#notice').html ''
+            $('#notice').addClass('hidden')
+
 
   updateDisplay = ->
     prettyDate = $.timeago Date.parse localStorage.lastSyncTime
@@ -54,6 +60,6 @@ $ ->
     else
       initLocalStorage()
       $('#notice').removeClass('hidden')
-      $('#notice').html 'Syncing with Discogs: <span class="collection-num">0</span> out of <span class="collection-total">0</span>.<br />This only needs to happen the first time you log in on a new device.'
+      $('#notice').html 'Syncing with Discogs: <span class="collection-num">0</span> out of <span class="collection-total">0</span>.<br />This will only happen automatically the first time you log in on a new device.'
       $('#search').attr('disabled', true)
       syncCollection(1)
