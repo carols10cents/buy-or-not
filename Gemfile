@@ -20,6 +20,8 @@ gem 'rails_12factor', '~> 0.0.3'
 
 gem 'omniauth-discogs', '~> 0.0.2'
 
+gem 'newrelic_rpm', '~> 3.11.2.286'
+
 group :development, :test do
   gem 'byebug', '~> 4.0.4'
   gem 'web-console', '~> 2.0'
