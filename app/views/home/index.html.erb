@@ -1,6 +1,9 @@
 <div class="homepage">
   <div class="container-fluid">
     <div class="jumbotron">
+      <div class="logo">
+        <%= image_tag 'logo-transparent.png', alt: '' %>
+      </div>
       <h1>To Buy or<br />Not To Buy?</h1>
       <p>A mobile-friendly, fast view of your Discogs collection. Helps you answer that age-old question when you're in your local record store: Do I already own this album?</p>
       <%= form_tag '/auth/discogs' do  %>

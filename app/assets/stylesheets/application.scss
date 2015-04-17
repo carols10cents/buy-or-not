@@ -45,8 +45,17 @@ button.navbar-toggle {
   text-align: right;
 }
 
-.jumbotron {
+.container-fluid .jumbotron {
   margin-top: 30px;
+  padding-right: 20px;
+  padding-left: 20px;
+}
+
+.logo {
+  float: right;
+  img {
+    width: 180px;
+  }
 }
 
 .hidden {
