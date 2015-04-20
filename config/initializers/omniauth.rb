@@ -1,5 +1,7 @@
 OmniAuth.config.logger = Rails.logger
-OmniAuth.config.full_host = 'http://tobuyvinyl.com'
+OmniAuth.config.full_host = lambda do |env|
+  "http://#{env['HTTP_HOST']}"
+end
 
 Rails.application.config.middleware.use OmniAuth::Builder do
   provider :discogs, ENV['DISCOGS_KEY'], ENV['DISCOGS_SECRET']
