@@ -7,4 +7,6 @@ Rails.application.routes.draw do
 
   get '/collection' => 'collection#show'
   get '/collection/sync' => 'collection#sync'
+
+  get '/releases/:id' => 'releases#show'
 end

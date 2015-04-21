@@ -41,9 +41,17 @@ $ ->
     if localStorage.releases?.length > 0
       releases = JSON.parse(localStorage.releases)
       releaseStrings = $.map releases, (r, i) ->
-        "#{r.artists} - #{r.title}"
-      $.each releaseStrings.sort(), (i, r) ->
-        $('#results').append("<tr><td>#{r}</td></tr>")
+        { id: r.id, value: r.text || "#{r.artists} - #{r.title}" }
+      $.each releaseStrings.sort((a, b) ->
+        a.value > b.value
+      ), (i, r) ->
+        str = "<tr><td>"
+        if r.id
+          str += "<a href='/releases/#{r.id}'>#{r.value}</a>"
+        else
+          str += r.value
+        str += "</td></tr>"
+        $('#results').append(str)
 
   $('#sync-collection').on 'click', (event) ->
     $(this).text('Syncing...')

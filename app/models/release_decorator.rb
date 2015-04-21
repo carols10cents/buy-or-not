@@ -10,4 +10,12 @@ class ReleaseDecorator
   def title
     @json['basic_information']['title']
   end
+
+  def discogs_id
+    @json['basic_information']['id']
+  end
+
+  def text
+    "#{artists} - #{title}"
+  end
 end

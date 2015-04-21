@@ -15,7 +15,7 @@ class CollectionDecorator
 
   def release_essentials
     releases.map { |r|
-      { artists: r.artists, title: r.title }
+      { id: r.discogs_id, artists: r.artists, title: r.title, text: r.text }
     }
   end
 
