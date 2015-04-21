@@ -47,7 +47,7 @@ $ ->
       ), (i, r) ->
         str = "<tr><td>"
         if r.id
-          str += "<a href='/releases/#{r.id}'>#{r.value}</a>"
+          str += "<a href='/releases/#{r.id}'><span class='glyphicon glyphicon-play-circle' aria-hidden='true'></span>#{r.value}</a>"
         else
           str += r.value
         str += "</td></tr>"

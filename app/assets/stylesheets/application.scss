@@ -71,3 +71,11 @@ button.navbar-toggle {
 button#clear-search {
   pointer-events: auto;
 }
+
+#results a {
+  display: block;
+
+  span.glyphicon {
+    float: right;
+  }
+}
